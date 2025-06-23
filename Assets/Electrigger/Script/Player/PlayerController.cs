@@ -82,17 +82,5 @@ namespace Electrigger
                 rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             }
         }
-
-        /* ===============================
-         * DEBUG: 地面判定の範囲を可視化
-         * =============================== */
-        private void OnDrawGizmos()
-        {
-            if (groundCheckPoint != null)
-            {
-                Gizmos.color = isGrounded ? Color.green : Color.red;
-                Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
-            }
-        }
     }
 }
