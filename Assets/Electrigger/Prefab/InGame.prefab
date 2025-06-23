@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 4609210113074198480}
   - component: {fileID: 1237403255575942818}
   - component: {fileID: 8238229700715817390}
+  - component: {fileID: 101670593588023697}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -338,6 +339,37 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &101670593588023697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744642958273889471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7876252675f253141a402ef5b7943536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 5126876504251425143}
+  offset: {x: 0, y: 1.5, z: -2.5}
+  smoothFollow: 0
+  followSpeed: 5
+  rotationSpeed: 2
+  enableMouseLook: 1
+  mouseSensitivity: 0.2
+  invertY: 1
+  minVerticalAngle: -60
+  maxVerticalAngle: 60
+  enableZoom: 1
+  minDistance: 2
+  maxDistance: 15
+  zoomSpeed: 2
+  enableCollisionAvoidance: 1
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  collisionBuffer: 0.3
 --- !u!1 &8797436726162104733
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +529,19 @@ MonoBehaviour:
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 101670593588023697}
+        m_TargetAssemblyTypeName: Electrigger.CameraController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
@@ -580,6 +624,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 101670593588023697}
+        m_TargetAssemblyTypeName: Electrigger.CameraController, Assembly-CSharp
+        m_MethodName: OnZoom
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 95e8e049-0651-4bb6-8b32-191863905722
+    m_ActionName: 'Player/Zoom[/Mouse/forwardButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
