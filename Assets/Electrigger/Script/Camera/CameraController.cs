@@ -210,6 +210,10 @@ namespace Electrigger
             {
                 transform.rotation = targetRotation;
             }
+
+            Vector3 playerEuler = target.eulerAngles;
+            playerEuler.y = horizontalAngle;
+            target.rotation = Quaternion.Euler(playerEuler);
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Electrigger
@@ -46,11 +47,23 @@ namespace Electrigger
         /// </summary>
         private void MovePlayer()
         {
-            Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
-            Vector3 targetVelocity = moveDirection * moveSpeed;
+            Vector3 inputDirection = new Vector3(moveInput.x, 0f, moveInput.y);
 
-            /* 現在の垂直速度をそのまま引き継ぐ */
-            targetVelocity.y = rb.linearVelocity.y;
+            /* カメラの前方と右方向を取得 */
+            Vector3 cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0f;
+            cameraForward.Normalize();
+
+            Vector3 cameraRight = Camera.main.transform.right;
+            cameraRight.y = 0f;
+            cameraRight.Normalize();
+
+            /* カメラの方向に基づいて移動方向を決める */
+            Vector3 moveDirection = cameraForward * inputDirection.z + cameraRight * inputDirection.x;
+
+            /* 最終的な速度を設定 */
+            Vector3 targetVelocity = moveDirection * moveSpeed;
+            targetVelocity.y = rb.linearVelocity.y; // 垂直速度は維持
             rb.linearVelocity = targetVelocity;
         }
 
