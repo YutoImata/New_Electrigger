@@ -19,15 +19,30 @@ namespace Electrigger
         [SerializeField] private float groundCheckRadius = 0.3f;
         [SerializeField] private LayerMask groundLayerMask;
 
-
         private bool isGrounded;   // 地面に接触しているか
         private Rigidbody rb;
 
-        private void Start()
+        private Transform cameraTransform;
+
+        // カメラの方向ベクトルをキャッシュ
+        private Vector3 cameraForward;
+        private Vector3 cameraRight;
+
+        /// <summary>
+        /// RigidbodyとカメラのTransformを初期化
+        /// </summary>
+        /// <param name="rigidbody">
+        public void Initialize(Rigidbody rigidbody, Transform camera)
         {
-            rb = GetComponent<Rigidbody>();
+            rb = rigidbody;
+            cameraTransform = camera;
         }
 
+        /// <summary>
+        /// 入力に基づいてプレイヤーの移動させる
+        /// カメラの向きを基準に移動方向を計算し、Rigidbodyの速度を設定
+        /// </summary>
+        /// <param name="input"></param>
         public void HandleMovement(Vector2 input)
         {
             Vector3 inputDirection = new Vector3(input.x, 0f, input.y);
@@ -50,6 +65,7 @@ namespace Electrigger
         public void HandleUpdate()
         {
             CheckGrounded();
+            UpdateCameraVectors();
         }
 
         public void HandleJump()
@@ -60,6 +76,27 @@ namespace Electrigger
             }
         }
 
+        /// <summary>
+        /// モード開始時にこのコンポーネントを有効化
+        /// </summary>
+        public void OnModeEnter()
+        {
+            Debug.Log("通常移動モードに切り替え");
+            enabled = true;
+        }
+
+        /// <summary>
+        /// モード終了時にこのコンポーネントを無効化
+        /// </summary>
+        public void OnModeExit()
+        {
+            enabled = false;
+        }
+
+
+        /// <summary>
+        /// 地面に接触しているかどうか
+        /// </summary>
         private void CheckGrounded()
         {
             if (groundCheckPoint != null)
@@ -68,6 +105,21 @@ namespace Electrigger
             }
         }
 
-        public bool IsGrounded => isGrounded;
+        /// <summary>
+        /// カメラのベクトルを更新
+        /// </summary>
+        private void UpdateCameraVectors()
+        {
+            if (cameraTransform != null)
+            {
+                cameraForward = cameraTransform.forward;
+                cameraForward.y = 0f;
+                cameraForward.Normalize();
+
+                cameraRight = cameraTransform.right;
+                cameraRight.y = 0f;
+                cameraRight.Normalize();
+            }
+        }
     }
 }

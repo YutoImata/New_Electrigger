@@ -17,10 +17,16 @@ namespace Electrigger
         private WireMovement wireMovement;
         private Vector2 moveInput;
 
+        private Transform cameraTransform;
+
         private void Start()
         {
             normalMovement = GetComponent<NormalMovement>();
             wireMovement = GetComponent<WireMovement>();
+
+            // カメラ参照を各移動クラスに渡す
+            normalMovement.Initialize(GetComponent<Rigidbody>(), cameraTransform);
+            wireMovement.Initialize(GetComponent<Rigidbody>(), cameraTransform);
             // 初期設定
             SetMovementMode(currentMode);
         }
@@ -53,12 +59,35 @@ namespace Electrigger
             }
         }
 
+        /// <summary>
+        /// 現在のモードに応じてモードを有効にするメソッドを呼ぶ
+        /// </summary>
+        /// <param name="newMode"></param>
         public void SetMovementMode(MovementMode newMode)
         {
+            /* 現在のモードを終了 */
+            switch (currentMode)
+            {
+                case MovementMode.Normal:
+                    normalMovement.OnModeExit();
+                    break;
+                case MovementMode.Wire:
+                    wireMovement.OnModeExit();
+                    break;
+            }
+
             currentMode = newMode;
-            /* モードによってコンポーネントの有無を切り替える */
-            normalMovement.enabled = (newMode == MovementMode.Normal);
-            wireMovement.enabled = (newMode == MovementMode.Wire);
+
+            /* 新しいモードを開始 */
+            switch (currentMode)
+            {
+                case MovementMode.Normal:
+                    normalMovement.OnModeEnter();
+                    break;
+                case MovementMode.Wire:
+                    wireMovement.OnModeEnter();
+                    break;
+            }
         }
 
         /// <summary>
