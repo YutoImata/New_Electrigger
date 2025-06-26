@@ -8,5 +8,4 @@ namespace Electrigger
         Normal, // 通常移動
         Wire    // ワイヤー移動
     }
-    
 }
