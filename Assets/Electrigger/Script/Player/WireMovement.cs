@@ -41,6 +41,10 @@ namespace Electrigger
             Vector3 moveDirection = cameraForward * inputDirection.z + cameraRight * inputDirection.x;
 
             rb.AddForce(moveDirection * wireSpeed, ForceMode.Acceleration);
+
+            /* ===============================
+             * TODO: ワイヤーの状態だったらオブジェクトにクリックしたら飛べるように処理を追加する
+             * =============================== */
         }
 
         /// <summary>
