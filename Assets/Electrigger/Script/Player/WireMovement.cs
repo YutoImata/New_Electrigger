@@ -10,6 +10,8 @@ namespace Electrigger
         [Header("ワイヤー設定")]
         [SerializeField] private float wireSpeed = 15f;
         [SerializeField] private float jumpPower = 20f;
+        [SerializeField] private float wireTargetRange = 100f; // ワイヤーターゲットの射程距離
+        [SerializeField] private LayerMask wireTargetLayer = -1; // ワイヤーターゲット可能なレイヤー
 
         const float INPUT_THRESHOLD = 0.01f; // 入力のしきい値
         private Rigidbody rb;
@@ -41,10 +43,26 @@ namespace Electrigger
             Vector3 moveDirection = cameraForward * inputDirection.z + cameraRight * inputDirection.x;
 
             rb.AddForce(moveDirection * wireSpeed, ForceMode.Acceleration);
+        }
 
-            /* ===============================
-             * TODO: ワイヤーの状態だったらオブジェクトにクリックしたら飛べるように処理を追加する
-             * =============================== */
+        /// <summary>
+        /// 左クリックされたオブジェクトに向かってワイヤーで引っ張られる処理
+        /// </summary>
+        private void HandleWireTargeting()
+        {
+            if (Input.GetMouseButton(1))
+            {
+                Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+
+                Debug.DrawRay(ray.origin, ray.direction * wireTargetRange, Color.red, 200f);
+
+                if (Physics.Raycast(ray, out RaycastHit hit, wireTargetRange, wireTargetLayer))
+                {
+                    Vector3 directionToTarget = (hit.point - rb.position).normalized;
+                    rb.linearVelocity = Vector3.zero;
+                    rb.AddForce(directionToTarget * wireSpeed, ForceMode.VelocityChange);
+                }
+            }
         }
 
         /// <summary>
@@ -52,7 +70,6 @@ namespace Electrigger
         /// </summary>
         public void OnModeEnter()
         {
-            Debug.Log("ワイヤー移動モードに切り替え");
             enabled = true;
         }
 
@@ -69,6 +86,7 @@ namespace Electrigger
         public void HandleUpdate()
         {
             UpdateCameraVectors();
+            HandleWireTargeting();
         }
 
         /// <summary>

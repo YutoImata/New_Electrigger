@@ -21,10 +21,19 @@ namespace Electrigger
 
         private void Start()
         {
+            // カメラを取得（"MainCamera" タグが必要）
+            cameraTransform = Camera.main?.transform;
+
+            if (cameraTransform == null)
+            {
+                Debug.LogError("Main Camera が見つかりません。MainCamera タグを確認してください。");
+            }
+
+            // カメラ参照を各移動クラスに渡す
+
             normalMovement = GetComponent<NormalMovement>();
             wireMovement = GetComponent<WireMovement>();
 
-            // カメラ参照を各移動クラスに渡す
             normalMovement.Initialize(GetComponent<Rigidbody>(), cameraTransform);
             wireMovement.Initialize(GetComponent<Rigidbody>(), cameraTransform);
             // 初期設定
@@ -123,8 +132,6 @@ namespace Electrigger
         /// </summary>
         public void OnWireToggle(InputAction.CallbackContext context)
         {
-            Debug.Log("左クリック検出 - ワイヤーモード切り替え");
-            
             if (context.started)
             {
                 MovementMode newMode = currentMode == MovementMode.Normal

@@ -81,7 +81,6 @@ namespace Electrigger
         /// </summary>
         public void OnModeEnter()
         {
-            Debug.Log("通常移動モードに切り替え");
             enabled = true;
         }
 
