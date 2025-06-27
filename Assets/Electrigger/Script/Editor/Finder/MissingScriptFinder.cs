@@ -11,7 +11,7 @@ namespace Electrigger
         private Vector2 scrollPos;
         private string result = "";
 
-        [MenuItem("Tools/Missing Script Finder")]
+        [MenuItem("Tools/Finder/Missing Script Finder")]
         public static void ShowWindow()
         {
             GetWindow<MissingScriptFinder>("Missing Script Finder");

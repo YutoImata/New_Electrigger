@@ -13,7 +13,7 @@ namespace Electrigger
         private string searchName = "";
         private List<Transform> foundObjects = new();
 
-        [MenuItem("Tools/Object Position Finder")]
+        [MenuItem("Tools/Finder/Object Position Finder")]
         public static void ShowWindow()
         {
             GetWindow<ObjectPositionFinder>("Object Position Finder");
