@@ -46,22 +46,19 @@ namespace Electrigger
         }
 
         /// <summary>
-        /// 左クリックされたオブジェクトに向かってワイヤーで引っ張られる処理
+        /// オブジェクトに向かってワイヤーで引っ張られる処理
         /// </summary>
-        private void HandleWireTargeting()
+        public void HandleWireActivate()
         {
-            if (Input.GetMouseButton(1))
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+
+            Debug.DrawRay(ray.origin, ray.direction * wireTargetRange, Color.red, 200f);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, wireTargetRange, wireTargetLayer))
             {
-                Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-
-                Debug.DrawRay(ray.origin, ray.direction * wireTargetRange, Color.red, 200f);
-
-                if (Physics.Raycast(ray, out RaycastHit hit, wireTargetRange, wireTargetLayer))
-                {
-                    Vector3 directionToTarget = (hit.point - rb.position).normalized;
-                    rb.linearVelocity = Vector3.zero;
-                    rb.AddForce(directionToTarget * wireSpeed, ForceMode.VelocityChange);
-                }
+                Vector3 directionToTarget = (hit.point - rb.position).normalized;
+                rb.linearVelocity = Vector3.zero;
+                rb.AddForce(directionToTarget * wireSpeed, ForceMode.VelocityChange);
             }
         }
 
@@ -86,7 +83,6 @@ namespace Electrigger
         public void HandleUpdate()
         {
             UpdateCameraVectors();
-            HandleWireTargeting();
         }
 
         /// <summary>

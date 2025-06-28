@@ -250,11 +250,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1375376596 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5171809619146818495, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-  m_PrefabInstance: {fileID: 4894923501943836896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1396571236
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,70 +366,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
-      value: f4588d9e-9e02-4484-b978-3f8b789dee79
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
-      value: 'Player/WireToggle[/Mouse/leftButton]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4894923501943836900}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4894923501943836900}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4894923501943836900}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnMove
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnWireToggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Electrigger.MovementManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Electrigger.MovementManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Electrigger.MovementManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 922709455933621030, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4978303126706401731, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.32155782
@@ -479,76 +410,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGame
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6883279115114508615, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7546403126260204385, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4894923501943836900}
-    - targetCorrespondingSourceObject: {fileID: 7546403126260204385, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4894923501943836899}
-    - targetCorrespondingSourceObject: {fileID: 7546403126260204385, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4894923501943836898}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
---- !u!1 &4894923501943836897 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7546403126260204385, guid: 68c0fc9510f114d438b36599f4c3e4ae, type: 3}
-  m_PrefabInstance: {fileID: 4894923501943836896}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4894923501943836898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4894923501943836897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c0bbcfdbcab73458aeea419e0953c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wireSpeed: 15
-  jumpPower: 20
-  wireTargetRange: 100
-  wireTargetLayer:
-    serializedVersion: 2
-    m_Bits: 8
---- !u!114 &4894923501943836899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4894923501943836897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5654cb308923a143b23f4c2135e5094, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpPower: 10
-  groundCheckPoint: {fileID: 1375376596}
-  groundCheckRadius: 0.3
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
---- !u!114 &4894923501943836900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4894923501943836897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592513ab0ec66ec4db6004aae73a0d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMode: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -128,7 +128,7 @@ namespace Electrigger
         }
 
         /// <summary>
-        /// プレイヤーの移動モードを通常と、ワイヤーで切り替えるトグル処理
+        /// 左クリックでプレイヤーの移動モードを通常と、ワイヤーで切り替えるトグル処理
         /// </summary>
         public void OnWireToggle(InputAction.CallbackContext context)
         {
@@ -138,6 +138,18 @@ namespace Electrigger
                     ? MovementMode.Wire
                     : MovementMode.Normal;
                 SetMovementMode(newMode);
+            }
+        }
+
+        /// <summary>
+        /// 右クリックでオブジェクトに向かってワイヤーで引っ張られる処理を呼ぶ
+        /// </summary>
+        /// <param name="context"></param>
+        public void OnWireActive(InputAction.CallbackContext context)
+        {
+            if (context.started && currentMode == MovementMode.Wire)
+            {
+                wireMovement.HandleWireActivate();
             }
         }
     }
