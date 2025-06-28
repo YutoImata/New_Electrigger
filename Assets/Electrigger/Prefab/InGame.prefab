@@ -472,10 +472,16 @@ PrefabInstance:
       addedObject: {fileID: 3476722341769023032}
     - targetCorrespondingSourceObject: {fileID: 8681409172856254592, guid: 875ec18f0e4a58641930741097a57e98, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6883279115114508615}
+      addedObject: {fileID: 2077879269685391043}
     - targetCorrespondingSourceObject: {fileID: 8681409172856254592, guid: 875ec18f0e4a58641930741097a57e98, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2077879269685391043}
+      addedObject: {fileID: 7305143384377410543}
+    - targetCorrespondingSourceObject: {fileID: 8681409172856254592, guid: 875ec18f0e4a58641930741097a57e98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7126164201673125196}
+    - targetCorrespondingSourceObject: {fileID: 8681409172856254592, guid: 875ec18f0e4a58641930741097a57e98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3923070370654692781}
   m_SourcePrefab: {fileID: 100100000, guid: 875ec18f0e4a58641930741097a57e98, type: 3}
 --- !u!4 &5126876504251425143 stripped
 Transform:
@@ -514,8 +520,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6883279115114508615}
-        m_TargetAssemblyTypeName: Electrigger.PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 7305143384377410543}
+        m_TargetAssemblyTypeName: Electrigger.MovementManager, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -558,8 +564,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Crouch[/Keyboard/c]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6883279115114508615}
-        m_TargetAssemblyTypeName: Electrigger.PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 7305143384377410543}
+        m_TargetAssemblyTypeName: Electrigger.MovementManager, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -640,6 +646,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 95e8e049-0651-4bb6-8b32-191863905722
     m_ActionName: 'Player/Zoom[/Mouse/forwardButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7305143384377410543}
+        m_TargetAssemblyTypeName: Electrigger.MovementManager, Assembly-CSharp
+        m_MethodName: OnWireToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f4588d9e-9e02-4484-b978-3f8b789dee79
+    m_ActionName: 'Player/WireToggle[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3923070370654692781}
+        m_TargetAssemblyTypeName: Electrigger.WireMovement, Assembly-CSharp
+        m_MethodName: HandleWireActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f4f2d230-fdde-425c-9572-b156570a08de
+    m_ActionName: 'Player/WireActivate[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -672,25 +710,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6883279115114508615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7546403126260204385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e958ab33564b6408cd3f587deb5ed8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpPower: 10
-  groundCheckPoint: {fileID: 5171809619146818495}
-  groundCheckRadius: 0.2
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!136 &2077879269685391043
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -714,3 +733,53 @@ CapsuleCollider:
   m_Height: 1.6609044
   m_Direction: 1
   m_Center: {x: 0.022047073, y: 0.80338144, z: 0}
+--- !u!114 &7305143384377410543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546403126260204385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592513ab0ec66ec4db6004aae73a0d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMode: 0
+--- !u!114 &7126164201673125196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546403126260204385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5654cb308923a143b23f4c2135e5094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpPower: 10
+  groundCheckPoint: {fileID: 5171809619146818495}
+  groundCheckRadius: 0.3
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &3923070370654692781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546403126260204385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c0bbcfdbcab73458aeea419e0953c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wireSpeed: 15
+  jumpPower: 20
+  wireTargetRange: 100
+  wireTargetLayer:
+    serializedVersion: 2
+    m_Bits: 8

@@ -5,14 +5,15 @@ using System.Collections.Generic;
 namespace Electrigger
 {
     /// <summary>
-    /// Hierarchy内のオブジェクト名を検索して、そのTransform.positionをGUIに表示するエディタツール
+    /// Hierarchy内のオブジェクト名を検索して、
+    /// 一致したオブジェクトのTransform.positionを一覧表示するツール
     /// </summary>
     public class ObjectPositionFinder : EditorWindow
     {
         private string searchName = "";
-        private List<Transform> foundObjects = new List<Transform>(); // 検索結果を保持
+        private List<Transform> foundObjects = new();
 
-        [MenuItem("Tools/Object Position Finder")]
+        [MenuItem("Tools/Finder/Object Position Finder")]
         public static void ShowWindow()
         {
             GetWindow<ObjectPositionFinder>("Object Position Finder");
@@ -20,10 +21,18 @@ namespace Electrigger
 
         private void OnGUI()
         {
+            if (GUILayout.Button("ツールマネージャーに戻る"))
+            {
+                ToolManager.ShowWindow();
+                this.Close();
+                return;
+            }
+
             GUILayout.Label("【使い方】", EditorStyles.boldLabel);
+
             EditorGUILayout.HelpBox(
-                "Hierarchy 内のオブジェクト名を入力して「検索」ボタンを押すと、\n" +
-                "一致するオブジェクトの位置情報（Transform.position）をこの画面に表示します。",
+                "Hierarchy内のオブジェクト名を入力して「検索」ボタンを押すと、\n" +
+                "一致するオブジェクトの位置情報（Transform.position）が一覧表示されます。",
                 MessageType.Info);
 
             GUILayout.Space(10);
@@ -50,11 +59,11 @@ namespace Electrigger
 
         private void SearchObjectPositions()
         {
-            foundObjects.Clear(); // 前回の検索結果をクリア
+            foundObjects.Clear();
 
             if (string.IsNullOrEmpty(searchName))
             {
-                Debug.LogWarning("検索ワードが空です。オブジェクト名を入力してください。");
+                Debug.LogWarning("検索語が空です。オブジェクト名を入力してください。");
                 return;
             }
 
