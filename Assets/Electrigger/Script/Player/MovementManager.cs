@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using UnityEngine.InputSystem;
 
 namespace Electrigger
@@ -18,7 +19,12 @@ namespace Electrigger
         private Vector2 moveInput;
 
         private Transform cameraTransform;
+        
 
+        /* プロパティ */
+        public MovementMode CurrentMode => currentMode;
+
+        public event Action<MovementMode> OnModeChanged;  // モード変更イベント
         private void Start()
         {
             // カメラを取得（"MainCamera" タグが必要）
@@ -97,6 +103,8 @@ namespace Electrigger
                     wireMovement.OnModeEnter();
                     break;
             }
+
+            OnModeChanged?.Invoke(currentMode);
         }
 
         /// <summary>

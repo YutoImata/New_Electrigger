@@ -29,9 +29,7 @@ namespace Electrigger
             // スペースキーを押したら攻撃
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("Space pressed! Attacking enemies...");
-
-                // EnemyManagerが存在するか確認
+                                // EnemyManagerが存在するか確認
                 if (EnemyManager.Instance == null) return;
 
                 foreach (var enemy in EnemyManager.Instance.Enemies)
